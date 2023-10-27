@@ -144,9 +144,9 @@ class _SidebarXState extends State<SidebarX>
               widget.footerBuilder?.call(context, widget.controller.extended) ??
                   const SizedBox(),
               if (widget.footerItems.isNotEmpty)
-                Expanded(
-                  child: ListView.separated(
+                ListView.separated(
                     reverse: true,
+                    shrinkWrap: true,
                     itemCount: widget.footerItems.length,
                     separatorBuilder: widget.separatorBuilder ??
                         (_, __) => const SizedBox(height: 8),
@@ -166,7 +166,6 @@ class _SidebarXState extends State<SidebarX>
                       );
                     },
                   ),
-                ),
               if (widget.showToggleButton)
                 _buildToggleButton(t, widget.collapseIcon, widget.extendIcon),
             ],
